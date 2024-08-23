@@ -58,7 +58,6 @@ public class ChangeTrackerPlugin extends Plugin implements DataSetListener, Acti
 
     @Override
     public void primitivesAdded(PrimitivesAddedEvent event) {
-        System.out.println("Event type " + "primitivesAdded");
     }
 
     Collection<TodoListItem> getItemsForPrimitives(Collection<? extends IPrimitive> primitives) {
@@ -96,22 +95,18 @@ public class ChangeTrackerPlugin extends Plugin implements DataSetListener, Acti
 
     @Override
     public void nodeMoved(NodeMovedEvent event) {
-        System.out.println("Event type " + "nodeMoved");
     }
 
     @Override
     public void wayNodesChanged(WayNodesChangedEvent event) {
-        System.out.println("Event type " + "wayNodesChanged");
     }
 
     @Override
     public void relationMembersChanged(RelationMembersChangedEvent event) {
-        System.out.println("Event type " + "relationMembersChanged");
     }
 
     @Override
     public void otherDatasetChange(AbstractDatasetChangedEvent event) {
-        System.out.println("Event type " + "otherDatasetChange");
     }
 
     @Override
@@ -147,6 +142,5 @@ public class ChangeTrackerPlugin extends Plugin implements DataSetListener, Acti
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        Logging.info("Action: "+actionEvent.getActionCommand());
     }
 }
