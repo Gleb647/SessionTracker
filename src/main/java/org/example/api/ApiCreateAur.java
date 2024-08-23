@@ -41,16 +41,4 @@ public final class ApiCreateAur extends ApiQuery<ApiQuery.ErrorCode> {
         return new ErrorCode(code, translatableMessage);
     }
 
-    @Override
-    protected int query(final ApiCredentials credentials) throws ApiException {
-        final URLConnection connection = sendPostRequest(
-                credentials,
-                Json.createObjectBuilder()
-                        .add("project_id", StaticConfig.ROVAS_CONNECTOR_PROJECT_ID)
-                        .add("wr_id", workReportId)
-                        .add("usage_fee", TimeConverterUtil.minutesToChrons(reportedMinutes) * StaticConfig.ASSET_USAGE_FEE)
-                        .add("note", I18n.tr("{0}% fee levied by the ''JOSM Rovas connector'' project for using the plugin", String.format(Locale.ROOT, "%.2f", StaticConfig.ASSET_USAGE_FEE * 100)))
-        );
-        return decodeJsonResult(connection, "result");
-    }
 }
